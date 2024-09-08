@@ -3,6 +3,8 @@ package br.com.junit;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+import ch.qos.logback.core.util.StringUtil;
+
 public class Pessoa {
 	
 	private String nome;
@@ -37,5 +39,12 @@ public class Pessoa {
 	
 	public boolean maiorDeIdade() {
 		return getIdade() >= 18;
+	}
+	
+	public boolean nomePreechido() {
+		if(this.nome == null || this.nome.isEmpty()) {
+			throw new IllegalArgumentException("Campo nome não foi preechido.");
+		}
+		return true;
 	}
 }
